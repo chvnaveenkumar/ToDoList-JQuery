@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>
+            ToDoList Using JQuery
+        </title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <input type=text>
+        <button>ToDoList</button>
+        <ul></ul>
+    </body>
+    <script>
+        var inputEl = $('input');
+        var btnEl = $('button');
+        var ulEl = $('ul');
+
+        btnEl.click(addToDo);
+        function addToDo()
+        {
+            var inputValue = inputEl.val();
+            if(inputValue.trim() == '')
+            {
+                return;
+            }else{
+                $('<li>'+ inputValue + '</li>')
+                .appendTo(ulEl)
+                .click(todoRemove);
+            }
+        }
+        function todoRemove()
+        {
+            var clickedLi = $(this);
+            clickedLi.remove();
+        }
+    </script>
+</html>
